@@ -1,0 +1,54 @@
++---------------------+                      +--------------------+
+|                     |                      |                    |
+|      Desktop        |                      |      ESP32         |
+|                     |                      |                    |
++----------+----------+                      +----------+---------+
+           |                                            |
+           | UDP Daten (WLAN)                           |
+           +--------------------------------------------+
+                                                        |
+                                                        |
+                                    +------------------+|
+                                    |                  ||
+                                    |   WS2813 LEDs    ||
+                                    |                  ||
+                                    +------------------+|
+                                                        |
+                                    +------------------+|
+                                    |                  ||
+                                    |   Hall-Sensor    ||
+                                    |                  ||
+                                    +------------------+|
+                                                        |
+                                                        |
+                                    +------------------+|
+                                    |                  ||
+                                    | Rotationssystem  ||
+                                    |                  ||
+                                    +------------------+
+
+
+Verkabelungsdetails:
+-------------------
+
+1. ESP32 zu WS2813 LEDs:
+   - ESP32 GPIO 5 -> WS2813 Daten-Eingang
+   - ESP32 GND -> WS2813 GND
+   - Externe 5V Stromversorgung -> WS2813 5V
+   - Externe 5V Stromversorgung GND -> ESP32 GND
+
+2. ESP32 zu Hall-Sensor:
+   - ESP32 GPIO 13 -> Hall-Sensor Ausgang
+   - ESP32 3.3V -> Hall-Sensor VCC
+   - ESP32 GND -> Hall-Sensor GND
+
+3. Stromversorgung:
+   - Externe Stromversorgung 5V für die LEDs
+   - USB oder separate Stromversorgung für den ESP32
+
+Hinweise:
+--------
+- Die WS2813 LEDs in einer vertikalen Linie anordnen
+- Den Hall-Sensor so positionieren, dass er einmal pro Rotation ausgelöst wird
+- Einen starken Motor verwenden, der eine gleichmäßige Rotation gewährleistet
+- Eventuell eine drahtlose Stromversorgung für die rotierenden Komponenten verwenden
